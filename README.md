@@ -1,0 +1,1 @@
+# Face_Recognization_Smart_Attendance_Manager
