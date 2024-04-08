@@ -1,12 +1,8 @@
 name: Update File in GitHub Repository
 
-
 on:
-  push:
-    branches:
-      - main  # Adjust branch name if needed
   schedule:
-    - cron: '0 * * * *'  # Adjust cron schedule if needed
+    - cron: '0 * * * *'  # Runs every hour, adjust the schedule as needed
 
 jobs:
   update:
@@ -18,10 +14,20 @@ jobs:
 
     - name: Update file
       run: |
-        # Replace the following command with the command to update your file
+        # Copy the local CSV file to the repository directory
         copy C:\Users\HP\Music\data\2024-04-07_attendance.csv 2024-04-07_attendance.csv
+        
+        # Set Git configuration
         git config --global user.email "aartinagpal78@gmail.com"
         git config --global user.name "GitHub Actions"
+        
+        # Stage and commit changes
+        git add 2024-04-07_attendance.csv
+        git commit -m "Update file"
+        
+        # Push changes to GitHub
+        git push
+
         git add 2024-04-07_attendance.csv
         git commit -m "Update file"
         git push
