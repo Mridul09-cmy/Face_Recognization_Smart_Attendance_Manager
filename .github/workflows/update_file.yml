@@ -29,6 +29,7 @@ jobs:
         git push
 
         git add 2024-04-07_attendance.csv
-        git commit -m "Update file"
+        git commit -m "Update 2024-04-07_attendance.csv file"
+
         git push
 
